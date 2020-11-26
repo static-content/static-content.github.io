@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Groovy: Caractères ASCII</title>
+    <meta name="google-site-verification" content="oTZL-J0lpqoMMfQvrhFBaPfG1gtsswFKz1RzHoMLgbo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+
+
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="../../favicon.ico">
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"><i class="fas fa-at fa-lg">CherOliv</i></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="../../archive.html">Archives</a></li>
+                <li><a href="../../about.html">A Propos</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../../feed.xml"><i class="fa fa-rss fa-lg"></i></a></li>
+                <li><a href="https://github.com/cheroliv"><i class="fab fa-github fa-lg"></i></a></li>
+                <li><a href="https://twitter.com/CherOliv"><i class="fab fa-twitter fa-lg"></i></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<div class="container">
+
+	<div class="page-header">
+		<h1>Groovy: Caractères ASCII</h1>
+	</div>
+
+	<p><em>10 juillet 2019</em></p>
+
+	<p><div class="paragraph">
+<p>Voici un bout de code fonctionnel en Groovy, qui génère un fichier texte,<br>
+avec les 256 premiers caractères lisibles du tableau ASCII<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+import java.nio.charset.StandardCharsets
+
+List&lt;Character&gt; chars = new ArrayList&lt;&gt;()
+int j = 0
+Character jumpLine = '\n'
+
+256.times { Integer idx -&gt;
+    if (Character.isAlphabetic(idx) || Character.isDigit(idx)) {
+        if (j % 10 == 0 &amp;&amp; j != 0) {
+            chars.add(jumpLine)
+            chars.add(idx as char)
+        } else chars.add(idx as char)
+        j++
+    }
+}
+
+String seperator = System.getProperty("file.separator")
+
+String path = "${System.getProperty("user.home")}${seperator}ascii.txt"
+File speCharFile = new File(path)
+
+if (speCharFile.exists() &amp;&amp; !speCharFile.directory) {
+    speCharFile.text = ""
+} else {
+    speCharFile.createNewFile()
+}
+
+String text = new String()
+
+chars.each { Character it -&gt;
+    text = it == jumpLine ? "$text$it" : "$text $it "
+}
+
+speCharFile.setText(text, StandardCharsets.UTF_8.toString())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>j&#8217;ai nommé le fichier spe_char.groovy,<br>
+depuis le dossier ou est le fichier<br>
+ouvrir un terminal et copier coller pour exécuter le script<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ groovy spe_char.groovy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  0  1  2  3  4  5  6  7  8  9
+  A  B  C  D  E  F  G  H  I  J
+  K  L  M  N  O  P  Q  R  S  T
+  U  V  W  X  Y  Z  a  b  c  d
+  e  f  g  h  i  j  k  l  m  n
+  o  p  q  r  s  t  u  v  w  x
+  y  z  ª  µ  º  À  Á  Â  Ã  Ä
+  Å  Æ  Ç  È  É  Ê  Ë  Ì  Í  Î
+  Ï  Ð  Ñ  Ò  Ó  Ô  Õ  Ö  Ø  Ù
+  Ú  Û  Ü  Ý  Þ  ß  à  á  â  ã
+  ä  å  æ  ç  è  é  ê  ë  ì  í
+  î  ï  ð  ñ  ò  ó  ô  õ  ö  ø
+  ù  ú  û  ü  ý  þ  ÿ</pre>
+</div>
+</div></p>
+
+	<section id="disqus_thread"></section>
+	<script type="text/javascript">
+		var disqus_identifier = 'blog/2019/0003_groovy_char_ascci_post.html';
+
+		(({disqus_shortname, document}) => {
+			injectScript('//' + disqus_shortname + '.disqus.com/embed.js');
+			injectScript('//' + disqus_shortname + '.disqus.com/count.js');
+
+			function injectScript(url) {
+				const s = document.createElement('script');
+				s.async = true;
+				s.src = url;
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+			}
+		})({'disqus_shortname': 'cheroliv', 'document': document});
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a class="dsq-brlink" href="https://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a>
+	<hr/>
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+          <p class="muted credit"><i class="fas fa-at">CherOliv</i> | &copy; 2019-2020 | Licence Creative Commons BY-NC-SA <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a><br>
+              Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a><br>
+              Icons with <a href="https://fontawesome.com/">Font-Awesome v5.10.2</a><br>
+              Baked with <a href="http://jbake.org">JBake v2.6.5</a><br>
+              Comments powered by <a href="http://disqus.com">Disqus</a>
+          </p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/prettify.js"></script>
+    
+  </body>
+</html>

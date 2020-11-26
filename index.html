@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>@CherOliv</title>
+    <meta name="google-site-verification" content="oTZL-J0lpqoMMfQvrhFBaPfG1gtsswFKz1RzHoMLgbo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/asciidoctor.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+
+
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+	
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"><i class="fas fa-at fa-lg">CherOliv</i></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="archive.html">Archives</a></li>
+                <li><a href="about.html">A Propos</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="feed.xml"><i class="fa fa-rss fa-lg"></i></a></li>
+                <li><a href="https://github.com/cheroliv"><i class="fab fa-github fa-lg"></i></a></li>
+                <li><a href="https://twitter.com/CherOliv"><i class="fab fa-twitter fa-lg"></i></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<div class="container">
+
+	<div class="page-header"/>
+  			<a href="blog/2020/0029_kubernetes_microk8s_docker_premiers_pas_post.html">
+  			<h1>Kubernetes, Microk8s, Docker: premiers pas</h1></a>
+  			<p>03 novembre 2020</p>
+  			<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://microk8s.io/docs/">doc officiel de microk8s</a><br></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installation_du_paquet_microk8s">Installation du paquet microk8s:</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>sudo snap install microk8s --classic --channel=1.19</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ajout_de_lutilisateur_courrant_au_group_du_processus_microk8s">Ajout de l&#8217;utilisateur courrant au group du processus microk8s</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+su - $USER</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_afficher_létat_de_microk8s">Afficher l&#8217;état de microk8s</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s status --wait-ready</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_acceder_à_kubernetes">Acceder à Kubernetes</h4>
+<div class="paragraph">
+<p>Récuperer les nodes(noeuds):<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s kubectl get nodes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Récuperer les services en cours:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s kubectl get services</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Récuperer les pods en cours:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s kubectl get pods</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ajouter_un_alias_à_son_shell">Ajouter un alias à son shell</h4>
+<div class="sect4">
+<h5 id="_pour_zsh">pour zsh</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>touch ~/.zsh_alias;
+echo "alias kubectl='microk8s kubectl'" &gt;&gt; ~/.zsh_alias;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pour_bash">pour bash</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>touch ~/.bash_alias;
+echo "alias kubectl='microk8s kubectl'" &gt;&gt; ~/.bash_alias;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installer_des_add_ons">Installer des add-ons</h4>
+<div class="paragraph">
+<p>Pour commencer, il est recommandé d&#8217;ajouter la gestion DNS pour faciliter la communication entre les services. Pour les applications nécessitant du stockage, le module complémentaire «stockage» fournit un espace de répertoire sur l&#8217;hôte. Ceux-ci sont faciles à configurer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s enable dns storage</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_démarrer_et_arreter_microk8s">Démarrer et arreter MicroK8s</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s stop</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s start</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notez que si vous laissez MicroK8 en marche, il redémarrera automatiquement après un redémarrage. Si vous ne voulez pas que cela se produise, n&#8217;oubliez pas de lancer l&#8217;arrêt microk8s avant de l&#8217;éteindre.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deployer_une_app">Deployer une app</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s kubectl create deployment nginx --image=nginx</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour vérifier l&#8217;état du déploiement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>microk8s kubectl get pods</code></pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0028_gradle_executer_un_processus_externe_depuis_une_tache_gradle_post.html">
+  			<h1>Gradle: Exécuter un processus externe depuis une tâche gradle</h1></a>
+  			<p>28 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_gradle_kotlin_dsl">Gradle-Kotlin-DSL:</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>open class PrintHerokuVersion : Exec() {
+    init {
+        this.workingDir = project.rootDir
+        this.commandLine("/snap/bin/heroku", "-v")
+        this.standardOutput = ByteArrayOutputStream()
+    }
+}
+
+project.tasks.register&lt;PrintHerokuVersion&gt;("printHerokuVersion")
+
+project.tasks.withType&lt;PrintHerokuVersion&gt; {
+    doLast { logger.info(standardOutput.toString()) }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour exécuter la tâche:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ ./gradlew pHV</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gradle_groovy_dsl">Gradle-Groovy-DSL:</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>task printHerokuVersionGroovy(type: Exec) {
+    workingDir(project.projectDir)
+    commandLine("/snap/bin/heroku", "-v")
+    standardOutput = new ByteArrayOutputStream()
+    doLast {
+        logger.info(standardOutput.toString())
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour exécuter la tâche:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ ./gradlew pHVG</code></pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0027_kotlin_not_implemented_exception_not_implemented_error_post.html">
+  			<h1>Kotlin: NotImplementedException, NotImplementedError</h1></a>
+  			<p>27 septembre 2020</p>
+  			<p><div class="paragraph">
+<p>NotImplementedException NotImplementedError, utilité pour les tests, ça permet de savoir, où on en est, et la cause du fail.<br>
+Pas encore implémenté, permet de lever la bonne exception.<br>
+Il y a :<br>
+<a href="http://commons.apache.org/proper/commons-lang/javadocs/api-release/org/apache/commons/lang3/NotImplementedException.html">org.apache.commons.lang3.NotImplementedException</a><br>
+<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-not-implemented-error/">kotlin.NotImplementedError</a><br></p>
+</div></p>
+  			<a href="blog/2020/0026_untar_post.html">
+  			<h1>Untar</h1></a>
+  			<p>26 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_liens_interserver_net">Liens: <a href="https://www.interserver.net/tips/kb/extract-tar-gz-files-using-linux-command-line/">interserver.net</a></h4>
+
+</div></p>
+  			<a href="blog/2020/0025_gradle_rejouer_les_tests_meme_lorsque_les_tests_sont_UP-TO-DATE_post.html">
+  			<h1>Gradle: Rejouer les tests même lorsque les tests sont UP-TO-DATE</h1></a>
+  			<p>25 septembre 2020</p>
+  			<p><div class="paragraph">
+<p>ajouter l’argument --rerun-tasks à la ligne commande.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ ./gradlew test --rerun-tasks</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2020/0024_docker_n_installe_pas_l_application_mais_tire_la_plutot_post.html">
+  			<h1>Docker, n’installe pas l’application mais tire la plutôt</h1></a>
+  			<p>24 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_source_hackernoon_com">source: <a href="https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198">hackernoon.com</a></h4>
+
+</div></p>
+  			<a href="blog/2020/0023_gherkin_en_francais_post.html">
+  			<h1>Gherkin en francais :</h1></a>
+  			<p>23 septembre 2020</p>
+  			<p><div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="json">{"fr": {
+    "and": [
+      "* ",
+      "Et que ",
+      "Et qu'",
+      "Et "
+    ],
+    "background": [
+      "Contexte"
+    ],
+    "but": [
+      "* ",
+      "Mais que ",
+      "Mais qu'",
+      "Mais "
+    ],
+    "examples": [
+      "Exemples"
+    ],
+    "feature": [
+      "Fonctionnalité"
+    ],
+    "given": [
+      "* ",
+      "Soit ",
+      "Sachant que ",
+      "Sachant qu'",
+      "Sachant ",
+      "Etant donné que ",
+      "Etant donné qu'",
+      "Etant donné ",
+      "Etant donnée ",
+      "Etant donnés ",
+      "Etant données ",
+      "Étant donné que ",
+      "Étant donné qu'",
+      "Étant donné ",
+      "Étant donnée ",
+      "Étant donnés ",
+      "Étant données "
+    ],
+    "name": "French",
+    "native": "français",
+    "rule": [
+      "Règle"
+    ],
+    "scenario": [
+      "Exemple",
+      "Scénario"
+    ],
+    "scenarioOutline": [
+      "Plan du scénario",
+      "Plan du Scénario"
+    ],
+    "then": [
+      "* ",
+      "Alors ",
+      "Donc "
+    ],
+    "when": [
+      "* ",
+      "Quand ",
+      "Lorsque ",
+      "Lorsqu'"
+    ]
+  }
+}</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2020/0022_gradle_cli_surcharger_un_parametre_post.html">
+  			<h1>Gradle cli: surcharger un paramètre</h1></a>
+  			<p>22 septembre 2020</p>
+  			<p><div class="sect4">
+<h5 id="_surcharger_un_parametre_par_la_ligne_de_commande">Surcharger un parametre par la ligne de commande :</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ ./gradlew -Pparam_component=CUSTOM</code></pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0021_memo_git_post.html">
+  			<h1>Mémo git</h1></a>
+  			<p>21 septembre 2020</p>
+  			<p><div class="sect1">
+<h2 id="_changer_de_depot_distant_dans_git">Changer de depot distant dans git</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_sources">Sources:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://xenovation.com/blog/source-control-management/git/how-to-change-remote-git-repository">xenovation</a></p>
+</li>
+<li>
+<p><a href="https://intellipaat.com/community/3102/git-show-remote-url-how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-from">intellipaat</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_changer_de_repo_distant_dans_git">changer de repo distant dans git</h4>
+<div class="paragraph">
+<p>afficher l&#8217;url du repo distant courrant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git config --get remote.origin.url</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour plus d&#8217;information sur le depot distant:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git remote show origin</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lister les depots distants</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git remote -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Changer de dépot distants</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git remote set-url origin git@github.com:kotlin-codes/hands-on-design-pattern-kotlin.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ajouter quand le dépot n’existe pas</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git remote add origin git@github.com:kotlin-codes/foo.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pusher</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git push -u origin master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ou</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>git push -u origin main</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0021_aspirer_depuis_une_URL_post.html">
+  			<h1>Aspirer depuis une URL</h1></a>
+  			<p>20 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_liens_stackoverflow">Liens: <a href="https://stackoverflow.com/a/1078539/837404">stackoverflow</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ wget -r -k -np http://site.com/docs/manual/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour définir un dossier cible ajouter l’argument -P puis donner le chemin.</p>
+</div>
+</div></p>
+  			<a href="blog/2020/0020_creer_un_disk_bootable_post.html">
+  			<h1>Créer un disk bootable</h1></a>
+  			<p>19 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_liens_etcher">Liens: <a href="https://www.balena.io/etcher/">etcher</a></h4>
+
+</div></p>
+  			<a href="blog/2020/0019_dezipper_en_CLI_dans_un_dossier_cible_post.html">
+  			<h1>Dezipper en CLI dans un dossier cible</h1></a>
+  			<p>18 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_liens_askubuntu">Liens: <a href="https://askubuntu.com/questions/86849/how-to-unzip-a-zip-file-from-the-terminal">askubuntu</a></h4>
+<div class="paragraph">
+<p>Si vous souhaitez extraire vers un dossier de destination particulier, vous pouvez utiliser :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ unzip fichier.zip -d dossier_destination</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si les répertoires source et de destination sont identiques, vous pouvez simplement faire:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ unzip file.zip</code></pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0018_Afficher_la_somme_des_tailles_de_fichier_dans_la_liste_des_r%C3%A9pertoires_post.html">
+  			<h1>Afficher la somme des tailles de fichier dans la liste des répertoires</h1></a>
+  			<p>17 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_liens_stackexchange">Liens: <a href="https://unix.stackexchange.com/questions/72661/show-sum-of-file-sizes-in-directory-listing">stackexchange</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>$ du -ach --exclude "./.*" /home/troll/</code></pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2020/0017_detruire_une_branch_sur_github_post.html">
+  			<h1>Détruire une branch sur github</h1></a>
+  			<p>16 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_détruire_une_branch_sur_github">Détruire une branch sur github</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_lien_gist">Lien: <a href="https://gist.github.com/cheroliv/921a13ed23ae6d4d66af8d43dd536987">gist</a></h4>
+
+</div></p>
+  			<a href="blog/2020/0016_asciidoc_markdown_memo_post.html">
+  			<h1>Asciidoc/Markdown Mémo</h1></a>
+  			<p>15 septembre 2020</p>
+  			<p><div class="sect3">
+<h4 id="_pourquoi_asciidoc_ou_markdown">Pourquoi asciidoc ou markdown ?</h4>
+<div class="paragraph">
+<p>Ici je m&#8217;oriente vers asciidoc, car j&#8217;ai déjà quelques tickets écris en asciidoc.<br>
+Asciidoc est un langage de balisage, qui permet de produire du contenu, en apportant une mise en page qui garde le texte lisible pour un humain.<br>
+C&#8217;est une façon de standardiser les traitements de textes pour des contenus simples sans logiciel supplémentaire.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_liens">Liens :</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://blog.oxiane.com/2018/06/13/asciidoc-documentation-as-code/">@jmdoudoux sur blog.oxiane.com</a> [asciidoc]</p>
+</li>
+<li>
+<p><a href="https://powerman.name/doc/asciidoc">powerman.name</a> [asciidoc]</p>
+</li>
+<li>
+<p><a href="http://hypertuxte.net/projetx/markdown.html">hypertuxte.net</a> [markdown]</p>
+</li>
+</ul>
+</div>
+</div></p>
+  			<a href="blog/2019/0013_how-to-install-a-deb-file_post.html">
+  			<h1>Debian : Installer un fichier .deb en ligne de commandes</h1></a>
+  			<p>19 août 2019</p>
+  			<p><div class="paragraph">
+<p>Pour installer un paquet debian depuis un fichier .deb en ligne de commandes.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo dpkg -i /chemin/du/fichier/deb/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>voir içi pour la <a href="https://unix.stackexchange.com/questions/159094/how-to-install-a-deb-file-by-dpkg-i-or-by-apt">référence</a><br></p>
+</div></p>
+  			<a href="blog/2019/0012_system_properties_post.html">
+  			<h1>Java: System.Properties</h1></a>
+  			<p>17 août 2019</p>
+  			<p><div class="paragraph">
+<p>Un membre de la classe System assez intéressant dans la <a href="https://fr.wikipedia.org/wiki/Machine_virtuelle_Java">JVM</a>,<br>
+qui méritait bien son ticket  <a href="https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html">System.Properties</a><br>
+voici un tableau de quelques propriétés intéressantes<br></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Meaning</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"file.separator"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character that separates components of a file path. This is "/" on UNIX and "\" on Windows.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"java.class.path"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path used to find directories and JAR archives containing class files. Elements of the class path are separated by a platform-specific character specified in the path.separator property.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"java.home"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Installation directory for Java Runtime Environment (JRE)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"java.vendor"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JRE vendor name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"java.vendor.url"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JRE vendor URL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"java.version"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JRE version number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"line.separator"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sequence used by operating system to separate lines in text files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"os.arch"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system architecture</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"os.name"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"os.version"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operating system version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"path.separator"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path separator character used in java.class.path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"user.dir"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User working directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"user.home"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User home directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"user.name"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User account name</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Ces propriétés sont intéressantes pour avoir des informations<br>
+sur le système hôte de la JVM.
+Exemple :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="java">System.getProperty("file.separator");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sortie console:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>jshell&gt; System.getProperty("file.separator");
+$1 ==&gt; "/"</pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0011_gradle_configuration_ide_jbake_content_post.html">
+  			<h1>Gradle: dossier resources visible dans l&apos;IDE</h1></a>
+  			<p>16 août 2019</p>
+  			<p><div class="paragraph">
+<p>Dans un projet applicatif piloté par le gestionnaire de build Gradle<br>
+il est plus agréable d’avoir la visibilité sur tous les dossiers<br>
+participant au développement de l’application,<br>
+comme des dossiers de ressources qui ne sont pas<br>
+dans les chemins par convention.<br>
+Par exemple je veux que le dossier src/jbake,<br>
+soit visible en tant ‘resource folder’,<br>
+il est possible de le faire en rentrant dans la configuration du projet,<br>
+dans les wizards de l’IDE.
+Cependant cette option n’est pas sauvegardée au rechargement suivant<br>
+du projet Gradle dans l’IDE. Pour apporter cette configuration de façon permanente<br>
+la solution est de surcharger la configuration des chemins de sources<br>
+dans le fichier de configuration build.gradle tel que aux lignes 18, 19, 20 et 21 :<br>
+build.gradle<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="groovy">plugins {
+    id "java"
+    id "groovy"
+    id "org.jbake.site" version "5.0.0"
+    id "org.ajoberstar.git-publish" version "2.1.1"
+}
+repositories {
+    mavenCentral()
+    jcenter()
+}
+group project_group
+version project_version
+sourceSets {
+    main {
+        java { srcDirs = [] }
+        groovy { srcDirs =["src/main/java", "src/main/groovy"] }
+        resources {
+            srcDirs =[
+                    "src/main/resources",
+                    "src/jbake"//in order to get site src content in the IDE
+            ]
+        }
+    }
+    test {
+        java { srcDirs = [] }
+        groovy { srcDirs =["src/test/java", "src/test/groovy"] }
+    }
+}
+test {
+    useJUnitPlatform()
+}
+configurations {
+    ivy
+}
+dependencies {
+    ivy "org.apache.ivy:ivy:$ivy_version"
+    implementation "org.codehaus.groovy:groovy-all:$groovy_version"
+    implementation "org.asciidoctor:asciidoctor-java-integration:$asciidoctor_java_integration_version"
+    implementation "org.freemarker:freemarker:$freemarker_version"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5_version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5_version"
+}
+gitPublish {
+    repoUri = github_pages_blog_repository
+    branch = git_branch
+    contents {
+        from(file(jbake_content_from)) {
+            into jbake_content_to
+        }
+    }
+}
+tasks.withType(GroovyCompile) {
+    groovyClasspath += configurations.ivy
+}</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0010_gradle_groovy_script_grab_ivy_configuration_post.html">
+  			<h1>Groovy script, grab et ivy configuration</h1></a>
+  			<p>14 août 2019</p>
+  			<p><div class="paragraph">
+<p>Le sujet du ticket est la configuration d&#8217;un script de build Gradle.<br>
+Je veux pouvoir utiliser un script Groovy sans faire référence<br>
+au projet Gradle dans lequel je l&#8217;ai attaché.<br>
+Je veux avoir la possibilité de lancer ce script Groovy hors de Gradle<br>
+sans que les annotations ivy de récupération de dépendance externe<br>
+ne viennent poser problème de performance ou de compilation<br>
+du script de build Gradle.<br>
+Pour illustrer la configuration je m&#8217;appuie sur deux scripts:<br>
+un script de build Gradle et un script Groovy.<br>
+Le script Groovy contient au début à la ligne 2,<br>
+une instruction pour tirer une dépendance  externe<br>
+à l&#8217;aide du gestionnaire de dépendance ivy.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="Groovy">#!/usr/bin/env groovy
+@Grab("commons-io:commons-io:2.6")
+
+import org.apache.commons.io.FileUtils
+
+static String getSeparator() {
+    System.getProperty("file.separator")
+}
+
+String from = "${System.getProperty("user.home")}${separator}.config${separator}transmission${separator}torrents"
+String to = "${System.getProperty("user.home")}${separator}Documents${separator}torrents_completed"
+
+File fromDlDir = new File("${System.getProperty("user.home")}${separator}Téléchargements")
+File fromDir = new File(from)
+File toDir = new File(to)
+
+Collection&lt;File&gt; torrentFiles = FileUtils.listFiles(
+        fromDir,
+        ["torrent"] as String[],
+        false)
+torrentFiles.addAll(FileUtils.listFiles(
+        fromDlDir,
+        ["torrent", "torrent.added"] as String[],
+        false))
+
+
+torrentFiles.empty ?: torrentFiles.each { it -&gt;
+    FileUtils.copyFileToDirectory(it, toDir)
+}
+println torrentFiles.size()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dans le fichier build.gradle, maintenant voyons comment mettre en harmonie<br>
+les deux gestionnaires de dépendances, ivy et Gradle.
+L&#8217;accord entre les deux se fait aux lignes :<br>
+26, 30, 37, 38 et 39<br>
+Ainsi je peux lancer mon script Groovy manuellement,<br>
+et la compilation de Gradle n&#8217;est pas gênée par le @Grab.<br>
+Les dépendances du script Groovy ne sont pas à fournir dans Gradle.<br>
+Par contre je ne peux pas lancer le script Groovy depuis Gradle.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="Groovy">plugins {
+    id "java"
+    id "groovy"
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+sourceSets {
+    main {
+        java { srcDirs = [] }
+        groovy { srcDirs =["src/main/java", "src/main/groovy"] }
+        resources {
+            srcDirs =["src/main/resources"]
+        }
+    }
+    test {
+        java { srcDirs = [] }
+        groovy { srcDirs =["src/test/java", "src/test/groovy"] }
+    }
+}
+
+configurations {
+    ivy
+}
+
+dependencies {
+    ivy "org.apache.ivy:ivy:$ivy_version"
+    implementation "org.codehaus.groovy:groovy-all:$groovy_version"
+}
+
+
+
+tasks.withType(GroovyCompile) {
+    groovyClasspath += configurations.ivy
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>référence du ticket  sur <a href="https://stackoverflow.com/a/18174033/837404">stackoverflow</a></p>
+</div></p>
+  			<a href="blog/2019/0009_groovy_algebre_pgcd_ppmc_post.html">
+  			<h1>Groovy: un peu d’algèbre, le pgcd et le ppmc</h1></a>
+  			<p>13 août 2019</p>
+  			<p><div class="sect2">
+<h3 id="_le_pgcd">Le PGCD</h3>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur">wiki PGCD ou Plus Grand Commun Diviseur</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_ppmc">Le PPMC</h3>
+<div class="paragraph">
+<p><a href="https://fr.wikipedia.org/wiki/Plus_petit_commun_multiple">wiki PPMC ou Plus Petit Commun Multiple</a></p>
+</div>
+<div class="paragraph">
+<p>AlgebraUtils.groovy<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">package com.cheroliv.misc
+
+import groovy.transform.CompileStatic
+
+@CompileStatic
+class AlgebraUtils {
+
+    /**
+     * Great common divisor
+     * Plus grand commun diviseur(pgcd)
+     * Great Common Divisor
+     * @param a
+     * @param b
+     * @return
+     */
+    static Integer gcd(Integer a, Integer b) {
+        !b ? a : gcd(b, a % b)
+    }
+
+
+    /**
+     * Least common multiple
+     * Plus petit commun multiplicateur(ppmc)
+     * @param a
+     * @param b
+     * @return
+     */
+    static BigInteger lcm(Integer a, Integer b) {
+        (a * b / gcd(a, b)) as BigInteger
+    }
+
+    static void main(String... args) {
+        Integer a = 96
+        Integer b = 28
+        println "gcd($a, $b) = ${gcd(a, b)}"
+        a = 790
+        b = 990
+        println "lcm($a, $b) = ${lcm(a, b)}"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gcd(96, 28) = 4
+lcm(790, 990) = 78210</pre>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2019/0008_bash_find_trouver_fichiers_par_extension_post.html">
+  			<h1>Bash : Trouver des fichiers par extension sortie sur fichier avec find</h1></a>
+  			<p>12 août 2019</p>
+  			<p><div class="paragraph">
+<p>Je recherche des fichiers par critères de nom:
+la liste des fichier qui ont pour extension .h et .cpp</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ find . -name '*.h' -o -name '*.cpp' + +</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>la liste des fichier qui ont pour extension .h et .cpp<br>
+le résultat est sauvegardé dans le fichier list_of_txt_files.list</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ find . -name '*.h' -o -name '*.cpp' -print &gt; list_of_txt_files.list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je recheche la liste des fichiers dont l&#8217;extension est .chm<br>
+et je détruit cette liste.<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ find . -name "*.chm" -type f -delete</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0015_projet_avec_methodologie_en_cascade_post.html">
+  			<h1>Gérer un projet digital avec une méthodologie en cascade</h1></a>
+  			<p>01 août 2019</p>
+  			<p><div class="sect2">
+<h3 id="_analyser_et_receuillir_les_besoins">Analyser et receuillir les besoins</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_definir_la_gestion_de_projet">Definir la gestion de projet</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../diagram/definir_projet.png" alt="definir la gestion de projet">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../img/triangle_qcd.png" alt="triangle_qcd">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contextualiser_le_projet">Contextualiser le projet</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_analyser_et_recueillir_des_besoins">Analyser et recueillir des besoins</h3>
+<div class="sect3">
+<h4 id="_formuler_les_objectifs_et_livrables">Formuler les objectifs et livrables</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_décrypter_une_grille_de_lecture">Décrypter une grille de lecture</h3>
+
+</div>
+<div class="sect1">
+<h2 id="_cadrez_le_projet_avec_votre_équipe">Cadrez le projet avec votre équipe</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../../img/conductor.png" alt="chef d&#8217;orchestre">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_consulter_les_experts_pour_trouver_la_solution">Consulter les experts pour trouver la solution</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_choisir_une_méthodologie_de_gestion_de_projet">Choisir une méthodologie de gestion de projet</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../../img/cascading_planning.png" alt="planning en cascade">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../img/Cycle_V_details.jpeg" alt="cycle en V">
+</div>
+</div>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2019/0014_list_all_databases_in_postgresql_post.html">
+  			<h1>Lister les bases de données dans une instance de PostgreSQL</h1></a>
+  			<p>30 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Je n&#8217;ai pas envie d&#8217;installer <a href="https://www.pgadmin.org/">pgAdmin</a> ou <a href="http://phppgadmin.sourceforge.net/">phppgadmin</a>
+alors que tout est présent en ligne de commande.<br>
+Pour cela nous devons lancer le terminal et nous connecter en tant que user postgres.<br>
+le user postgres est le seul à avoir par défaut le droit de lancer l&#8217;application psql qui est le client ligne de commande
+(<a href="https://fr.wikipedia.org/wiki/Interface_en_ligne_de_commande">CLI</a>) postgresql,<br>
+pour pouvoir parler à la base de donnees en ligne de commande depuis le terminal.<br>
+Pour se connecter, lancer le terminal et taper ceci:<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo -i -u postgres</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour se connecter et arriver directement à l&#8217;invite de commande postgresql, taper ceci :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo -i -u postgres psql</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour lister les bases de données d&#8217;une instance de postgresql, voici la commande :<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="SQL">postgres=# \l</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>                                  Liste des bases de données
+    Nom    | Propriétaire | Encodage | Collationnement | Type caract. |    Droits d'accès
+-----------+--------------+----------+-----------------+--------------+-----------------------
+ fiber     | tech         | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =Tc/tech             +
+           |              |          |                 |              | tech=CTc/tech
+ fiberdev  | tech         | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =Tc/tech             +
+           |              |          |                 |              | tech=CTc/tech
+ fiberweb  | tech         | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =Tc/tech             +
+           |              |          |                 |              | tech=CTc/tech
+ postgres  | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  |
+ template0 | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =c/postgres          +
+           |              |          |                 |              | postgres=CTc/postgres
+ template1 | postgres     | UTF8     | fr_FR.UTF-8     | fr_FR.UTF-8  | =c/postgres          +
+           |              |          |                 |              | postgres=CTc/postgres
+(6 lignes)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>taper q pour sortir de l&#8217;affichage des resulats<br>
+<br>
+pour lister les schémas d&#8217;une instance de postgresl.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="sql">postgres=# SELECT schema_name FROM information_schema.schemata;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>--------------------
+ public
+ information_schema
+ pg_catalog
+ pg_toast_temp_1
+ pg_temp_1
+ pg_toast
+(6 lignes)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ou</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="sql">postgres=# SELECT nspname FROM pg_catalog.pg_namespace;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>--------------------
+ pg_toast
+ pg_temp_1
+ pg_toast_temp_1
+ pg_catalog
+ information_schema
+ public
+(6 lignes)</pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0007_groovy_rename_recursively_files_post.html">
+  			<h1>Groovy: Renomer des fichiers recursivement</h1></a>
+  			<p>29 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Mon lecteur de vidéo sur ma TV a sa façon de passer<br>
+d&#8217;un fichier à l&#8217;autre en lecture continue<br>
+et son mode de lecture est de passer de 1&#8230;&#8203;..mp4 à 10&#8230;&#8203;.mp4,<br>
+et non pas de 1&#8230;&#8203;mp4 à 2&#8230;&#8203;.mp4.<br>
+Le problème est qu&#8217;il y a près de 900 fichiers et dossiers.<br>
+Bingo un super cas d&#8217;utilisation de Groovy pour manipuler<br>
+des fichiers, renommage, recherche de motif dans le nom du fichier<br>
+ou dossier.<br>
+Ici le but est de changer les noms commençant par<br>
+un chiffre et dont le second caractère du nom<br>
+n&#8217;est pas un chiffre, j&#8217;ajouterai à ce nom un 0 au début<br></p>
+</div>
+<div class="paragraph">
+<p>renameFilesToStartWithTwoDigit.groovy<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+/**
+ * get a crossplateform separator
+ * @return
+ */
+static String getSeparator() {
+    System.getProperty("file.separator")
+}
+/**
+ * rename file
+ * @param file
+ * @param newName
+ * @return the renamed file
+ */
+static File rename(File file, String newName) {
+    assert file.renameTo(file
+            .parentFile.path +
+            getSeparator() +
+            newName)
+    new File(file
+            .parentFile.path +
+            getSeparator() +
+            newName)
+}
+
+String rootFolderPath = System.getProperty("user.home") +
+        "/Bureau/ng-courses/Udemy - Angular 7 " +
+        "(formerly Angular 2) - The Complete Guide"
+
+File rootFolder = new File(rootFolderPath)
+assert rootFolder.exists()
+assert rootFolder.directory
+assert rootFolder.canRead()
+
+List&lt;File&gt; dirList = new ArrayList&lt;&gt;()
+
+//Adding rootFolder in dirList
+// just in case there is some files in it
+dirList.add(rootFolder)
+
+//looping to get list of directories
+//recursively inside rootFolder
+rootFolder.traverse { File file -&gt;
+    !file.directory ?: dirList.add(file)
+}
+
+//looping through dirList
+//to rename directories filling criterias
+for (int i = dirList.size() - 1; i &gt;= 0; i--) {
+    Character[] chars = dirList.get(i).name.chars
+    !(chars[0].digit &amp;&amp; !chars[1].digit) ?:
+            dirList.set(i, rename(dirList.get(i),
+                    "0${dirList.get(i).name}"))
+    if (dirList.get(i).directory) {
+        //looping through directory
+        //to rename file filling criterias
+        dirList.get(i).listFiles().each { File f -&gt;
+            Character[] cs = f.name.chars
+            !(cs[0].digit &amp;&amp; !cs[1].digit) ?:
+                    rename(f, "0${f.name}")
+        }
+    }
+}</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0006_groovy_find_files_copy_to_post.html">
+  			<h1>Groovy: Recherche de fichiers avec critère, copie de la selection</h1></a>
+  			<p>19 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Le but de ce script est de rechercher des fichiers,<br>
+à partir d&#8217;un répertoire parent; récupérer la sélection<br>
+dans une liste. Enfin copier cette liste de fichiers<br>
+dans un répertoire destination cela en Groovy.</p>
+</div>
+<div class="paragraph">
+<p>findCopyTo.groovy<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+@Grab("commons-io:commons-io:2.6")
+
+import groovy.io.FileType
+import org.apache.commons.io.FileUtils
+
+/**
+ * un separateur OS independant
+ * @return
+ */
+static String getSep() {
+    System.getProperty("file.separator")
+}
+/**
+ * la liste des fichiers dont le titre contient un item
+ * de la liste des motifs
+ *
+ * @param path
+ * @param motifs
+ * @return la liste des chemins complet de fichiers
+ */
+static List&lt;String&gt; findFilesContainingMotifs(
+        String path,
+        List&lt;String&gt; motifs) {
+    List&lt;String&gt; filePathResultList = new ArrayList&lt;&gt;()
+    new File(path)
+            .eachFileRecurse(FileType.FILES) {
+                if (it.name.toLowerCase().contains('cucumber')) {
+                    filePathResultList.add it.path
+                }
+            }
+    filePathResultList
+}
+
+/**
+ * copy vers la liste des fichiers
+ * @param files
+ * @param to
+ */
+static void copyFilesTo(List&lt;String&gt; files, String to) {
+    File toDirDest = new File(to)
+    files.each { String filepath -&gt;
+        File file = new File(filepath)
+        //si le dernier caractere de to n'est pas un separateur
+        // alors ajoute le a la chaine
+        (to.substring(to.length() - 1) == sep) ?: to.concat(sep)
+        if (to + file.name != filepath) {
+            FileUtils.copyFileToDirectory(file, toDirDest)
+            file.delete()
+        }
+    }
+}
+/**
+ * la list des arguments
+ */
+String userName = System.getProperty("user.name")
+List&lt;String&gt; motifs = ['cucumber']
+String path = "/media/$userName/320/Books/"
+String to = "/media/$userName/320/Books/bdd/"
+/**
+ * lappel aux methodes
+ */
+copyFilesTo(findFilesContainingMotifs(path, motifs), to)
+
+//affiche moi les fichiers déplacés
+findFilesContainingMotifs(path, motifs).each {
+    println it
+}</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0005_groovy_manipulation_files_post.html">
+  			<h1>Groovy: Manipulation de fichiers, recherche et suppression</h1></a>
+  			<p>18 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Ici je vais m’intéresser au chargement d&#8217;une propriété dans un build projet <a href="https://docs.gradle.org/current/userguide/userguide.html">gradle</a><br>
+sans que celle ci soit disponible dans le code.<br>
+La propriété sera défini dans le fichier gradle.properties du dossier ~/.gradle/gradle.properties<br>
+~ est un raccourcie de la variable symbolique HOME_PATH représentant la racine utilisateur de session: le <a href="https://fr.wikipedia.org/wiki/R%C3%A9pertoire_personnel">répertoire personnel</a>.<br>
+De la même façon dans un build projet <a href="https://maven.apache.org/guides/index.html">maven</a>, avec ~/.m2/settings.xml
+Le but de ce script c&#8217;est de supprimer les fichiers qui correspondraient aux motifs énoncés<br>
+dans la variable strCriteria.
+Pour cela je vais utiliser les <a href="https://fr.wikipedia.org/wiki/Fermeture_(informatique)">closures</a>: each, findAll,  collect<br>
+ainsi que la classe StringTokenizer qui va découper en morceau ma chaîne de critères<br>
+pour en récupérer une liste de strings.
+Si un des fichiers de mon dossier à nettoyer contient un des motif dans son nom<br>
+alors il sera un candidat à la destruction en étant ajouté à la liste résultat.<br>
+Et à la dernière ligne un petit exemple d&#8217;<a href="https://en.wikipedia.org/wiki/Elvis_operator">Elvis operator</a><br>
+filemanip.groovy<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+//Mes criteres de selection des fichiers à detruire
+String strCriteria = "Dummies Dummie ajax Objective-C Windows blackberry " +
+        "wordpress joomla ios c# f# rails ruby flex asp flash Dreamweaver adobe " +
+        "CoffeeScript c++ .chm .epub .rar .zip .tar drupal drupals .net php javascript " +
+        ".js iphone ipad js _js facebook gwt vaadin linq python py zope window " +
+        "3D scala gaming active_directory tomcat jboss glassfish microsoft 2d " +
+        "lego blogger blog cocoa dojo dom dotnetnuke eclipse .gz unity sharepoint " +
+        ".tgz iwork filemaker .doc .txt"
+
+
+//repertoire personnel
+String userDir = System.getProperty("user.home")
+//un separateur de chemin crossplatform
+String sep = System.getProperty("file.separator")
+//la variable symbolique
+String sym_books_vrac_path = "books_vrac_path"
+
+//le chemin de mon fichier gradle.properties hors projet
+String propertiesFilePath = userDir
+        .concat("${sep}.gradle${sep}gradle.properties")
+
+
+File propertiesFile = new File(propertiesFilePath)
+
+
+//je m'aassure que le fichier existe et que ce n'est pas un dossier
+assert propertiesFile.exists() &amp;&amp; !propertiesFile.directory
+
+Properties gradleProperties = new Properties()
+
+//on boucle avec un inpustream sur le fichier
+//gradle.properties pour peupler ma variable gradleProperties
+propertiesFile.withInputStream { InputStream it -&gt;
+    gradleProperties.load(it)
+}
+
+//le chemin du dossier books_vrac est la valeur de notre clé books_vrac_path
+String pathVracDir = gradleProperties.get(sym_books_vrac_path)
+
+//j'ai récuperé tous ces livres en tapant cette commande dans le terminal
+//wget -m -np -c -R "index.html*" "http://the-eye.eu/public/Books/IT%20Various/"
+
+//on ouvre le dossier dont le chemin est dans la variable pathVracDir
+// on s'assure qu'il existe et que c'est un dossier
+File vracDir = new File(pathVracDir)
+assert vracDir.exists() &amp;&amp; vracDir.directory
+
+
+//separer les élèments de ma liste de critère
+StringTokenizer tokenizer = new StringTokenizer(strCriteria)
+
+//la liste de critere
+List&lt;String&gt; criteriaList = new ArrayList&lt;&gt;()
+
+//j'itère sur les tokens et je construit ma liste de token,
+// mot clef critère de recherche
+tokenizer.each { String it -&gt;
+    criteriaList.add(it.toLowerCase())
+}
+
+//je collect tous les noms de fichier dans le dossier
+List&lt;String&gt; fileNameList = vracDir
+        .listFiles()
+        .collect { File it -&gt;
+            it.directory ?: it.name
+        }
+
+// je collect les noms de fichier qui contiendraient un des criteres
+List&lt;String&gt; resultList = fileNameList.findAll { String name -&gt;
+    criteriaList.findAll { String crit -&gt;
+        name.toLowerCase().contains(crit)
+    }
+}
+
+// je parcours ma liste de résultat pour les effacer
+resultList.each { String fileName -&gt;
+    assert new File(vracDir.path + sep + fileName).delete()
+}
+
+println fileNameList.size()
+println resultList.size()
+resultList.empty ?: println(vracDir.path + sep + resultList.first())</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0004_groovy_replace_string_load_properties_post.html">
+  			<h1>Groovy: Remplacer une séquence de caractères dans une String et charger une Properties depuis une file</h1></a>
+  			<p>17 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Voici un bout de code fonctionnel en groovy,<br>
+pour changer toutes les occurrences d&#8217;une séquence de caractères dans une String<br>
+et charger un fichier .properties dans un objet properties.<br>
+Exécuter une commande dans une String.<br>
+replaceTextinFile.groovy<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+println System.getProperty("user.home")
+
+static String getSeparator_() {
+    System.getProperty("file.separator")
+}
+
+String separator = separator_
+
+String path = System.getProperty("user.home")
+        .concat("${separator}.gradle" +
+                separator +
+                "gradle.properties")
+
+File propertiesFile = new File(path)
+
+assert propertiesFile.exists() &amp;&amp; !propertiesFile.directory
+
+Properties gradleProperties = new Properties()
+
+propertiesFile.withInputStream { InputStream it -&gt;
+    gradleProperties.load(it)
+}
+
+String user_name = gradleProperties.getProperty("user_name")
+
+String text
+String resultText
+text = new File("${System.getProperty("user.home")}" +
+        separator +
+        "src" +
+        separator +
+        "cheroliv.github.io" +
+        separator +
+        "src" +
+        separator +
+        "main" +
+        separator +
+        "resources" +
+        separator +
+        "eco_space.txt").text
+
+String to = separator +
+        "media" +
+        separator +
+        "${user_name}" +
+        separator +
+        "320" +
+        separator +
+        "videoCours" +
+        separator
+String from = "${System.getProperty("user.home")}" +
+        separator +
+        "p2p" +
+        separator
+
+resultText = text.replace(to, from)
+
+println resultText
+
+//execute command line in a string
+println "rsync -avr ${resultText} ${to}".execute().text</code></pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0003_groovy_char_ascci_post.html">
+  			<h1>Groovy: Caractères ASCII</h1></a>
+  			<p>10 juillet 2019</p>
+  			<p><div class="paragraph">
+<p>Voici un bout de code fonctionnel en Groovy, qui génère un fichier texte,<br>
+avec les 256 premiers caractères lisibles du tableau ASCII<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="groovy">#!/usr/bin/env groovy
+import java.nio.charset.StandardCharsets
+
+List&lt;Character&gt; chars = new ArrayList&lt;&gt;()
+int j = 0
+Character jumpLine = '\n'
+
+256.times { Integer idx -&gt;
+    if (Character.isAlphabetic(idx) || Character.isDigit(idx)) {
+        if (j % 10 == 0 &amp;&amp; j != 0) {
+            chars.add(jumpLine)
+            chars.add(idx as char)
+        } else chars.add(idx as char)
+        j++
+    }
+}
+
+String seperator = System.getProperty("file.separator")
+
+String path = "${System.getProperty("user.home")}${seperator}ascii.txt"
+File speCharFile = new File(path)
+
+if (speCharFile.exists() &amp;&amp; !speCharFile.directory) {
+    speCharFile.text = ""
+} else {
+    speCharFile.createNewFile()
+}
+
+String text = new String()
+
+chars.each { Character it -&gt;
+    text = it == jumpLine ? "$text$it" : "$text $it "
+}
+
+speCharFile.setText(text, StandardCharsets.UTF_8.toString())</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>j&#8217;ai nommé le fichier spe_char.groovy,<br>
+depuis le dossier ou est le fichier<br>
+ouvrir un terminal et copier coller pour exécuter le script<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ groovy spe_char.groovy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>résultat:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  0  1  2  3  4  5  6  7  8  9
+  A  B  C  D  E  F  G  H  I  J
+  K  L  M  N  O  P  Q  R  S  T
+  U  V  W  X  Y  Z  a  b  c  d
+  e  f  g  h  i  j  k  l  m  n
+  o  p  q  r  s  t  u  v  w  x
+  y  z  ª  µ  º  À  Á  Â  Ã  Ä
+  Å  Æ  Ç  È  É  Ê  Ë  Ì  Í  Î
+  Ï  Ð  Ñ  Ò  Ó  Ô  Õ  Ö  Ø  Ù
+  Ú  Û  Ü  Ý  Þ  ß  à  á  â  ã
+  ä  å  æ  ç  è  é  ê  ë  ì  í
+  î  ï  ð  ñ  ò  ó  ô  õ  ö  ø
+  ù  ú  û  ü  ý  þ  ÿ</pre>
+</div>
+</div></p>
+  			<a href="blog/2019/0002_config_debian_post.html">
+  			<h1>Config Debian</h1></a>
+  			<p>19 avril 2019</p>
+  			<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bonjour/bonsoir<br>
+Je suis à bout des blocages système de Ubuntu<br>
+toutes les 5 min après le lancement d’un navigateur et/ou d’un IDE.<br>
+J’ai décidé de donner sa chance à debian 9 avec bureau xfce (moche mais léger).<br>
+Avant de quitter le navire ubuntu bien-sur il faut sauvegarder mes données,<br>
+pour cela j’utilise l’utilitaire en ligne de commande rsync avec l’option -avr,<br>
+oliv est mon profil utilisateur et 320 est le nom de mon disque usb externe,<br>
+backup le nom du dossier ou je range ma sauvegarde.<br>
+voici la commande passé :<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ rsync -avr /home/oliv /media/oliv/320/backUp</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>une fois la copie et la gravure de debian en CD Bootable effectué,<br>
+sans remord bye bye ubuntu.
+Le but de la nouvelle installe est d’éviter au maximum<br>
+les installations hors de mon home<br>
+cheroliv est le nom de mon home cad mon nom d’utilisateur de session sur debian.<br></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation_de_debian">Installation de debian</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installer_sudo">installer sudo</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ su -
+$ apt-get install sudo
+$ adduser cheroliv sudo
+$ touch /etc/sudoers.d/cheroliv
+$ chmod 0660 /etc/sudoers.d/cheroliv
+$ visudo
+# ajouter a la fin du fichier
+cheroliv ALL=(ALL:ALL) ALL
+# ou directement par la commande
+$ echo "cheroliv ALL=(ALL:ALL) ALL" &gt;&gt; /etc/sudoers</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ajouter mon user au groupe sudo
+<a href="https://blog.seboss666.info/2014/05/installer-et-utiliser-sudo-sur-debian/" class="bare">https://blog.seboss666.info/2014/05/installer-et-utiliser-sudo-sur-debian/</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://forum.ubuntu-fr.org/viewtopic.php?id=2010211" class="bare">https://forum.ubuntu-fr.org/viewtopic.php?id=2010211</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_sdkman">installation de sdkman</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo apt-get install zip
+$ curl -s "https://get.sdkman.io" | bash</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_java">installation de java</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sdk list java
+# pour sélectionner la ou les version de java a installer
+$ sdk install java 8.0.202-zulufx
+$ sdk install java 12.0.1-zulu</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_groovy">installation de groovy</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sdk list groovy
+# pour sélectionner la ou les version de groovy a installer
+$ sdk install groovy 2.5.7</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_jbake_gradle_maven">installation de jbake, gradle, maven</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sdk install jbake // pour mon blog
+$ sdk install gradle
+$ sdk install maven
+$ sdk install ant</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creation_dun_desktop_entry_pour_netbeans">creation d’un desktop entry pour netbeans</h3>
+<div class="listingblock">
+<div class="content">
+<pre>/home/cheroliv/.local/share/applications/netbeans.desktop
+[Desktop Entry]
+Type=Application
+Name=NetBeans IDE 11
+Icon=/home/cheroliv/IDE/netbeans/nb/netbeans.png
+Exec=/home/cheroliv/IDE/netbeans/bin/netbeans
+Comment=NetBeans IDE
+Terminal=false
+Encoding=UTF-8
+GenericName=NetBeans IDE
+Categories=Development;IDE;
+StartupNotify=false</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_nodejs_npm_avec_nvm">installation de nodejs-npm avec nvm</h3>
+<div class="paragraph">
+<p><a href="https://tecadmin.net/install-nodejs-with-nvm/" class="bare">https://tecadmin.net/install-nodejs-with-nvm/</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_git">installation de git</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ apt-get install git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>création des clefs rsa pour github en ligne de commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo apt-get install ssh-askpass
+# j’ai déjà des clé public rsa que j’ai recupreé de ma sauvegarde, pour les recuprer j’ai copier le dossier .ssh/ de mon home sauvegardé, puis tapé :
+$ chmod 600 ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa
+# le message devrait être :
+# Identity added: /home/cheroliv/.ssh/id_rsa (/home/cheroliv/.ssh/id_rsa)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>sinon reprendre depuis le début la procédure
+<a href="https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="bare">https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_vs_code">installation de vs code</h3>
+<div class="paragraph">
+<p><a href="https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/" class="bare">https://linuxize.com/post/how-to-install-visual-studio-code-on-debian-9/</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo apt update
+$ sudo apt install software-properties-common apt-transport-https curl
+$ curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+$ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+$ sudo apt update
+$ sudo apt install code</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_intellij_et_android_studio">installation de intellij et android studio</h3>
+<div class="paragraph">
+<p>rien de bien compliqué se rendre sur le site telecharger l&#8217;executable et lancer depuis le terminal, ensuite 'create desktop shortcut' et c&#8217;est bon.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_de_postgresql_avec_la_version_des_dépots_debian">installation de postgresql avec la version des dépots debian</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo apt-get update
+$ apt-get install postgresql</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_demarrer_et_arreter_postgresql">demarrer et arreter postgresql</h3>
+<div class="literalblock">
+<div class="content">
+<pre>Demarrer PostgreSQL server:</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo service postgresql start</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Arreter PostgreSQL server:</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">$ sudo service postgresql stop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>voila that&#8217;s it that&#8217;s all, un pc avec debian,
+sdkman, java, gradle, maven, ant, jbake, vscode, npm, nodejs, github, intellij, android studio, postgresql</p>
+</div>
+</div>
+</div>
+</div></p>
+  			<a href="blog/2019/0001_fiber_project_post.html">
+  			<h1>Projet Fiber</h1></a>
+  			<p>16 avril 2019</p>
+  			<p><div class="paragraph">
+<p>Le fiber project est un cas d&#8217;étude pour mettre en place des techniques de programmation.
+Le fiber project est basé sur plusieurs projet applicatif:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/optic-fiber/fiber-jhi">fiber-jhi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/optic-fiber/fiber-web">fiber-web</a></p>
+</li>
+<li>
+<p><a href="https://github.com/optic-fiber/fiber-console">fiber-console</a></p>
+</li>
+<li>
+<p><a href="https://github.com/optic-fiber/fiber-jdbc">fiber-jdbc</a></p>
+</li>
+</ul>
+</div></p>
+	
+	<hr/>
+	
+	<p>Les anciens post sont dipsonible içi : <a href="archive.html">archive</a>.</p>
+
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+          <p class="muted credit"><i class="fas fa-at">CherOliv</i> | &copy; 2019-2020 | Licence Creative Commons BY-NC-SA <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a><br>
+              Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a><br>
+              Icons with <a href="https://fontawesome.com/">Font-Awesome v5.10.2</a><br>
+              Baked with <a href="http://jbake.org">JBake v2.6.5</a><br>
+              Comments powered by <a href="http://disqus.com">Disqus</a>
+          </p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/prettify.js"></script>
+    
+  </body>
+</html>
