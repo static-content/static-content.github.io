@@ -6,8 +6,8 @@
     <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>ven., 27 nov. 2020 00:18:31 +0100</pubDate>
-    <lastBuildDate>ven., 27 nov. 2020 00:18:31 +0100</lastBuildDate>
+    <pubDate>ven., 27 nov. 2020 00:29:02 +0100</pubDate>
+    <lastBuildDate>ven., 27 nov. 2020 00:29:02 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
