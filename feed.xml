@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>@CherOliv</title>
-    <link>https://www.cheroliv.com</link>
-    <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://blog.cheroliv.com</link>
+    <atom:link href="https://blog.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>ven., 27 nov. 2020 00:29:02 +0100</pubDate>
-    <lastBuildDate>ven., 27 nov. 2020 00:29:02 +0100</lastBuildDate>
+    <pubDate>mer., 9 déc. 2020 22:59:35 +0100</pubDate>
+    <lastBuildDate>mer., 9 déc. 2020 22:59:35 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
-      <link>https://www.cheroliv.com/blog/2020/0029_kubernetes_microk8s_docker_premiers_pas_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0029_kubernetes_microk8s_docker_premiers_pas_post.html</link>
       <pubDate>mar., 3 nov. 2020 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/2020/0029_kubernetes_microk8s_docker_premiers_pas_post.html</guid>
       	<description>
@@ -143,7 +143,7 @@ echo &quot;alias kubectl=&apos;microk8s kubectl&apos;&quot; &amp;gt;&amp;gt; ~/.
     </item>
     <item>
       <title>Gradle: Exécuter un processus externe depuis une tâche gradle</title>
-      <link>https://www.cheroliv.com/blog/2020/0028_gradle_executer_un_processus_externe_depuis_une_tache_gradle_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0028_gradle_executer_un_processus_externe_depuis_une_tache_gradle_post.html</link>
       <pubDate>lun., 28 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0028_gradle_executer_un_processus_externe_depuis_une_tache_gradle_post.html</guid>
       	<description>
@@ -202,7 +202,7 @@ project.tasks.withType&amp;lt;PrintHerokuVersion&amp;gt; {
     </item>
     <item>
       <title>Kotlin: NotImplementedException, NotImplementedError</title>
-      <link>https://www.cheroliv.com/blog/2020/0027_kotlin_not_implemented_exception_not_implemented_error_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0027_kotlin_not_implemented_exception_not_implemented_error_post.html</link>
       <pubDate>dim., 27 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0027_kotlin_not_implemented_exception_not_implemented_error_post.html</guid>
       	<description>
@@ -217,7 +217,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Untar</title>
-      <link>https://www.cheroliv.com/blog/2020/0026_untar_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0026_untar_post.html</link>
       <pubDate>sam., 26 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0026_untar_post.html</guid>
       	<description>
@@ -229,7 +229,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Gradle: Rejouer les tests même lorsque les tests sont UP-TO-DATE</title>
-      <link>https://www.cheroliv.com/blog/2020/0025_gradle_rejouer_les_tests_meme_lorsque_les_tests_sont_UP-TO-DATE_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0025_gradle_rejouer_les_tests_meme_lorsque_les_tests_sont_UP-TO-DATE_post.html</link>
       <pubDate>ven., 25 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0025_gradle_rejouer_les_tests_meme_lorsque_les_tests_sont_UP-TO-DATE_post.html</guid>
       	<description>
@@ -245,7 +245,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Docker, n’installe pas l’application mais tire la plutôt</title>
-      <link>https://www.cheroliv.com/blog/2020/0024_docker_n_installe_pas_l_application_mais_tire_la_plutot_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0024_docker_n_installe_pas_l_application_mais_tire_la_plutot_post.html</link>
       <pubDate>jeu., 24 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0024_docker_n_installe_pas_l_application_mais_tire_la_plutot_post.html</guid>
       	<description>
@@ -257,7 +257,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Gherkin en francais :</title>
-      <link>https://www.cheroliv.com/blog/2020/0023_gherkin_en_francais_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0023_gherkin_en_francais_post.html</link>
       <pubDate>mer., 23 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0023_gherkin_en_francais_post.html</guid>
       	<description>
@@ -336,7 +336,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Gradle cli: surcharger un paramètre</title>
-      <link>https://www.cheroliv.com/blog/2020/0022_gradle_cli_surcharger_un_parametre_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0022_gradle_cli_surcharger_un_parametre_post.html</link>
       <pubDate>mar., 22 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0022_gradle_cli_surcharger_un_parametre_post.html</guid>
       	<description>
@@ -352,7 +352,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Mémo git</title>
-      <link>https://www.cheroliv.com/blog/2020/0021_memo_git_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0021_memo_git_post.html</link>
       <pubDate>lun., 21 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0021_memo_git_post.html</guid>
       	<description>
@@ -437,7 +437,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Aspirer depuis une URL</title>
-      <link>https://www.cheroliv.com/blog/2020/0021_aspirer_depuis_une_URL_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0021_aspirer_depuis_une_URL_post.html</link>
       <pubDate>dim., 20 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0021_aspirer_depuis_une_URL_post.html</guid>
       	<description>
@@ -456,7 +456,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Créer un disk bootable</title>
-      <link>https://www.cheroliv.com/blog/2020/0020_creer_un_disk_bootable_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0020_creer_un_disk_bootable_post.html</link>
       <pubDate>sam., 19 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0020_creer_un_disk_bootable_post.html</guid>
       	<description>
@@ -468,7 +468,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Dezipper en CLI dans un dossier cible</title>
-      <link>https://www.cheroliv.com/blog/2020/0019_dezipper_en_CLI_dans_un_dossier_cible_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0019_dezipper_en_CLI_dans_un_dossier_cible_post.html</link>
       <pubDate>ven., 18 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0019_dezipper_en_CLI_dans_un_dossier_cible_post.html</guid>
       	<description>
@@ -495,7 +495,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Afficher la somme des tailles de fichier dans la liste des répertoires</title>
-      <link>https://www.cheroliv.com/blog/2020/0018_Afficher_la_somme_des_tailles_de_fichier_dans_la_liste_des_r%C3%A9pertoires_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0018_Afficher_la_somme_des_tailles_de_fichier_dans_la_liste_des_r%C3%A9pertoires_post.html</link>
       <pubDate>jeu., 17 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0018_Afficher_la_somme_des_tailles_de_fichier_dans_la_liste_des_r%C3%A9pertoires_post.html</guid>
       	<description>
@@ -511,7 +511,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Détruire une branch sur github</title>
-      <link>https://www.cheroliv.com/blog/2020/0017_detruire_une_branch_sur_github_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0017_detruire_une_branch_sur_github_post.html</link>
       <pubDate>mer., 16 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0017_detruire_une_branch_sur_github_post.html</guid>
       	<description>
@@ -527,7 +527,7 @@ Il y a :&lt;br&gt;
     </item>
     <item>
       <title>Asciidoc/Markdown Mémo</title>
-      <link>https://www.cheroliv.com/blog/2020/0016_asciidoc_markdown_memo_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2020/0016_asciidoc_markdown_memo_post.html</link>
       <pubDate>mar., 15 sept. 2020 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2020/0016_asciidoc_markdown_memo_post.html</guid>
       	<description>
@@ -559,7 +559,7 @@ C&amp;#8217;est une façon de standardiser les traitements de textes pour des co
     </item>
     <item>
       <title>Debian : Installer un fichier .deb en ligne de commandes</title>
-      <link>https://www.cheroliv.com/blog/2019/0013_how-to-install-a-deb-file_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0013_how-to-install-a-deb-file_post.html</link>
       <pubDate>lun., 19 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0013_how-to-install-a-deb-file_post.html</guid>
       	<description>
@@ -578,7 +578,7 @@ C&amp;#8217;est une façon de standardiser les traitements de textes pour des co
     </item>
     <item>
       <title>Java: System.Properties</title>
-      <link>https://www.cheroliv.com/blog/2019/0012_system_properties_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0012_system_properties_post.html</link>
       <pubDate>sam., 17 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0012_system_properties_post.html</guid>
       	<description>
@@ -678,7 +678,7 @@ $1 ==&amp;gt; &quot;/&quot;&lt;/pre&gt;
     </item>
     <item>
       <title>Gradle: dossier resources visible dans l&apos;IDE</title>
-      <link>https://www.cheroliv.com/blog/2019/0011_gradle_configuration_ide_jbake_content_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0011_gradle_configuration_ide_jbake_content_post.html</link>
       <pubDate>ven., 16 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0011_gradle_configuration_ide_jbake_content_post.html</guid>
       	<description>
@@ -760,7 +760,7 @@ tasks.withType(GroovyCompile) {
     </item>
     <item>
       <title>Groovy script, grab et ivy configuration</title>
-      <link>https://www.cheroliv.com/blog/2019/0010_gradle_groovy_script_grab_ivy_configuration_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0010_gradle_groovy_script_grab_ivy_configuration_post.html</link>
       <pubDate>mer., 14 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0010_gradle_groovy_script_grab_ivy_configuration_post.html</guid>
       	<description>
@@ -871,7 +871,7 @@ tasks.withType(GroovyCompile) {
     </item>
     <item>
       <title>Groovy: un peu d’algèbre, le pgcd et le ppmc</title>
-      <link>https://www.cheroliv.com/blog/2019/0009_groovy_algebre_pgcd_ppmc_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0009_groovy_algebre_pgcd_ppmc_post.html</link>
       <pubDate>mar., 13 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0009_groovy_algebre_pgcd_ppmc_post.html</guid>
       	<description>
@@ -947,7 +947,7 @@ lcm(790, 990) = 78210&lt;/pre&gt;
     </item>
     <item>
       <title>Bash : Trouver des fichiers par extension sortie sur fichier avec find</title>
-      <link>https://www.cheroliv.com/blog/2019/0008_bash_find_trouver_fichiers_par_extension_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0008_bash_find_trouver_fichiers_par_extension_post.html</link>
       <pubDate>lun., 12 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0008_bash_find_trouver_fichiers_par_extension_post.html</guid>
       	<description>
@@ -982,7 +982,7 @@ et je détruit cette liste.&lt;br&gt;&lt;/p&gt;
     </item>
     <item>
       <title>Gérer un projet digital avec une méthodologie en cascade</title>
-      <link>https://www.cheroliv.com/blog/2019/0015_projet_avec_methodologie_en_cascade_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0015_projet_avec_methodologie_en_cascade_post.html</link>
       <pubDate>jeu., 1 août 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0015_projet_avec_methodologie_en_cascade_post.html</guid>
       	<description>
@@ -1049,7 +1049,7 @@ et je détruit cette liste.&lt;br&gt;&lt;/p&gt;
     </item>
     <item>
       <title>Lister les bases de données dans une instance de PostgreSQL</title>
-      <link>https://www.cheroliv.com/blog/2019/0014_list_all_databases_in_postgresql_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0014_list_all_databases_in_postgresql_post.html</link>
       <pubDate>mar., 30 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0014_list_all_databases_in_postgresql_post.html</guid>
       	<description>
@@ -1157,7 +1157,7 @@ pour lister les schémas d&amp;#8217;une instance de postgresl.&lt;/p&gt;
     </item>
     <item>
       <title>Groovy: Renomer des fichiers recursivement</title>
-      <link>https://www.cheroliv.com/blog/2019/0007_groovy_rename_recursively_files_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0007_groovy_rename_recursively_files_post.html</link>
       <pubDate>lun., 29 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0007_groovy_rename_recursively_files_post.html</guid>
       	<description>
@@ -1248,7 +1248,7 @@ for (int i = dirList.size() - 1; i &amp;gt;= 0; i--) {
     </item>
     <item>
       <title>Groovy: Recherche de fichiers avec critère, copie de la selection</title>
-      <link>https://www.cheroliv.com/blog/2019/0006_groovy_find_files_copy_to_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0006_groovy_find_files_copy_to_post.html</link>
       <pubDate>ven., 19 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0006_groovy_find_files_copy_to_post.html</guid>
       	<description>
@@ -1337,7 +1337,7 @@ findFilesContainingMotifs(path, motifs).each {
     </item>
     <item>
       <title>Groovy: Manipulation de fichiers, recherche et suppression</title>
-      <link>https://www.cheroliv.com/blog/2019/0005_groovy_manipulation_files_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0005_groovy_manipulation_files_post.html</link>
       <pubDate>jeu., 18 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0005_groovy_manipulation_files_post.html</guid>
       	<description>
@@ -1448,7 +1448,7 @@ resultList.empty ?: println(vracDir.path + sep + resultList.first())&lt;/code&gt
     </item>
     <item>
       <title>Groovy: Remplacer une séquence de caractères dans une String et charger une Properties depuis une file</title>
-      <link>https://www.cheroliv.com/blog/2019/0004_groovy_replace_string_load_properties_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0004_groovy_replace_string_load_properties_post.html</link>
       <pubDate>mer., 17 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0004_groovy_replace_string_load_properties_post.html</guid>
       	<description>
@@ -1529,7 +1529,7 @@ println &quot;rsync -avr ${resultText} ${to}&quot;.execute().text&lt;/code&gt;&l
     </item>
     <item>
       <title>Groovy: Caractères ASCII</title>
-      <link>https://www.cheroliv.com/blog/2019/0003_groovy_char_ascci_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0003_groovy_char_ascci_post.html</link>
       <pubDate>mer., 10 juil. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0003_groovy_char_ascci_post.html</guid>
       	<description>
@@ -1610,7 +1610,7 @@ ouvrir un terminal et copier coller pour exécuter le script&lt;br&gt;&lt;/p&gt;
     </item>
     <item>
       <title>Config Debian</title>
-      <link>https://www.cheroliv.com/blog/2019/0002_config_debian_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0002_config_debian_post.html</link>
       <pubDate>ven., 19 avr. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0002_config_debian_post.html</guid>
       	<description>
@@ -1828,7 +1828,7 @@ sdkman, java, gradle, maven, ant, jbake, vscode, npm, nodejs, github, intellij, 
     </item>
     <item>
       <title>Projet Fiber</title>
-      <link>https://www.cheroliv.com/blog/2019/0001_fiber_project_post.html</link>
+      <link>https://blog.cheroliv.com/blog/2019/0001_fiber_project_post.html</link>
       <pubDate>mar., 16 avr. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0001_fiber_project_post.html</guid>
       	<description>
