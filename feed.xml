@@ -6,8 +6,8 @@
     <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>mer., 13 janv. 2021 21:34:46 +0100</pubDate>
-    <lastBuildDate>mer., 13 janv. 2021 21:34:46 +0100</lastBuildDate>
+    <pubDate>mer., 13 janv. 2021 21:38:41 +0100</pubDate>
+    <lastBuildDate>mer., 13 janv. 2021 21:38:41 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
@@ -1827,7 +1827,7 @@ sdkman, java, gradle, maven, ant, jbake, vscode, npm, nodejs, github, intellij, 
 	</description>
     </item>
     <item>
-      <title>Projet gradle-jbake-git-publish-disqus</title>
+      <title>Faire un blog avec gradle-jbake-git-publish-disqus</title>
       <link>https://www.cheroliv.com/blog/2019/0001_gradle-jbake-git-publish-disqus_project_post.html</link>
       <pubDate>mar., 16 avr. 2019 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2019/0001_gradle-jbake-git-publish-disqus_project_post.html</guid>
