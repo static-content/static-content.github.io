@@ -6,8 +6,8 @@
     <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>mer., 13 janv. 2021 21:38:41 +0100</pubDate>
-    <lastBuildDate>mer., 13 janv. 2021 21:38:41 +0100</lastBuildDate>
+    <pubDate>mer., 13 janv. 2021 22:01:59 +0100</pubDate>
+    <lastBuildDate>mer., 13 janv. 2021 22:01:59 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
@@ -1833,8 +1833,12 @@ sdkman, java, gradle, maven, ant, jbake, vscode, npm, nodejs, github, intellij, 
       <guid isPermaLink="false">blog/2019/0001_gradle-jbake-git-publish-disqus_project_post.html</guid>
       	<description>
 	&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Le project gradle-jbake-git-publish-disqus est un cas d&amp;#8217;étude, d&amp;#8217;utilisation de gradle pour automatiser le développement, déployement et versionnage avec git.
-L&amp;#8217;application est un blog hébergeable sur un &lt;a href=&quot;https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu&quot;&gt;CDN&lt;/a&gt; gratuit, cela utilise jbake, un generateur de site static, avec le plugin gradle-jbake la generation de contenu est piloté et facilement executable en ligne de commandes.&lt;/p&gt;
+&lt;p&gt;Le project gradle-jbake-git-publish-disqus est un blog facile à mettre en ligne pour demarrer l&amp;#8217;ecriture d&amp;#8217;article.
+Le project gradle-jbake-git-publish-disqus est une application en ligne de commande.
+Elle utilise &lt;a href=&quot;https://docs.gradle.org/current/userguide/what_is_gradle.html&quot;&gt;gradle&lt;/a&gt; pour automatiser le développement, déploiement et versioning avec le plugin &lt;a href=&quot;https://github.com/ajoberstar/gradle-git-publish&quot;&gt;org.ajoberstar.git-publish&lt;/a&gt;.
+le blog est généré avec le plugin &lt;a href=&quot;https://github.com/jbake-org/jbake-gradle-plugin&quot;&gt;org.jbake.site&lt;/a&gt;.
+Ce blog s&amp;#8217;appuie sur &lt;a href=&quot;https://jbake.org/docs/2.6.5/&quot;&gt;jbake&lt;/a&gt;
+Le blog généré est hébergeable sur un &lt;a href=&quot;https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu&quot;&gt;CDN&lt;/a&gt; gratuit.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
