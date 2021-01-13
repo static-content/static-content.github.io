@@ -120,4 +120,8 @@
         <loc>https://www.cheroliv.com/blog/2019/0002_config_debian_post.html</loc>
         <lastmod>2019-04-19</lastmod>
     </url>
+    <url>
+        <loc>https://www.cheroliv.com/blog/2019/0001_gradle-jbake-git-publish-disqus_project_post.html</loc>
+        <lastmod>2019-04-16</lastmod>
+    </url>
 </urlset>
