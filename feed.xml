@@ -6,8 +6,8 @@
     <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>mer., 13 janv. 2021 21:27:12 +0100</pubDate>
-    <lastBuildDate>mer., 13 janv. 2021 21:27:12 +0100</lastBuildDate>
+    <pubDate>mer., 13 janv. 2021 21:34:46 +0100</pubDate>
+    <lastBuildDate>mer., 13 janv. 2021 21:34:46 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
@@ -1839,10 +1839,10 @@ L&amp;#8217;application est un blog hébergeable sur un &lt;a href=&quot;https:/
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/cccp-education/gradle-jbake&quot;&gt;gradle-jbake&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/cccp-education/gradle-jbake-git-publish-disqus&quot;&gt;gradle-jbake-git-publish-disqus&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/cccp-education/demo-gradle-jbake&quot;&gt;demo-gradle-jbake&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cccp-education.github.io/jbake-blog-demo/&quot;&gt;jbake-blog-demo&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
