@@ -6,8 +6,8 @@
     <atom:link href="https://www.cheroliv.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Cheroliv feeds</description>
     <language>fr-fr</language>
-    <pubDate>dim., 17 janv. 2021 17:29:45 +0100</pubDate>
-    <lastBuildDate>dim., 17 janv. 2021 17:29:45 +0100</lastBuildDate>
+    <pubDate>dim., 17 janv. 2021 17:31:24 +0100</pubDate>
+    <lastBuildDate>dim., 17 janv. 2021 17:31:24 +0100</lastBuildDate>
 
     <item>
       <title>Kubernetes, Microk8s, Docker: premiers pas</title>
@@ -23,7 +23,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
-&lt;h4 id=&quot;_installation_du_paquet_microk8sgggggggggggg&quot;&gt;Installation du paquet microk8s:gggggggggggg&lt;/h4&gt;
+&lt;h4 id=&quot;_installation_du_paquet_microk8sgggggggggggg1111111&quot;&gt;Installation du paquet microk8s:gggggggggggg1111111&lt;/h4&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code&gt;sudo snap install microk8s --classic --channel=1.19&lt;/code&gt;&lt;/pre&gt;
